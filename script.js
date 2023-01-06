@@ -84,7 +84,7 @@ equalButton.addEventListener('click' , () => {
         current = Number(current)
         previous = Number(previous)
         previous += current
-        currentScreen.textContent = previous
+        currentScreen.textContent = roundNumber(previous)
         previousScreen.textContent = ''
     }
     else if(previousScreen.textContent.includes('−')){
@@ -94,7 +94,7 @@ equalButton.addEventListener('click' , () => {
         current = Number(current)
         previous = Number(previous)
         previous -= current
-        currentScreen.textContent = previous
+        currentScreen.textContent = roundNumber(previous)
         previousScreen.textContent = ''
     }
     else if(previousScreen.textContent.includes('×')){
@@ -104,7 +104,7 @@ equalButton.addEventListener('click' , () => {
         current = Number(current)
         previous = Number(previous)
         previous *= current
-        currentScreen.textContent = previous
+        currentScreen.textContent = roundNumber(previous)
         previousScreen.textContent = ''
     }
 
@@ -115,8 +115,11 @@ equalButton.addEventListener('click' , () => {
         current = Number(current)
         previous = Number(previous)
         previous /= current
-        currentScreen.textContent = previous
+        currentScreen.textContent = roundNumber(previous)
         previousScreen.textContent = ''
     }
 })
 
+function roundNumber(num) {
+    return Math.round(num * 1000) / 1000 ;
+}
