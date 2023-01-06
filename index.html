@@ -12,48 +12,50 @@
 
     <div class="calculator">
 
-    <form class="screen">
-         <input type="text" class="input">
-    </form>
+    <div class="screen">
+         <div class="previous"></div>
+         <div class="current"></div>
+    </div>
 
 
     <div class="other">
     
-        <button class="otherButtons" id="btn">AC</button>
-        <button class="otherButtons" id="btn">DEL</button>
+        <button class="clear" id="btn">AC</button>
+        <button class="delete" id="btn">DEL</button>
     
     </div>
 
     <div class="allButtons">
         
         <div class="numbers">
-
-            <button type="button" class="numberButtons" id="btn">1</button>
-            <button type="button" class="numberButtons" id="btn">2</button>
-            <button type="button" class="numberButtons" id="btn">3</button>
-            <button type="button" class="numberButtons" id="btn">4</button>
-            <button type="button" class="numberButtons" id="btn">5</button>
-            <button type="button" class="numberButtons" id="btn">6</button>
-            <button type="button" class="numberButtons" id="btn">7</button>
-            <button type="button" class="numberButtons" id="btn">8</button>
-            <button type="button" class="numberButtons" id="btn">9</button>
-            <button type="button" class="numberButtons" id="btn">.</button>
-            <button type="button" class="numberButtons" id="btn">0</button>
-            <button type="button" class="numberButtons" id="btn">=</button>
+            
+            <button type="button" class="numberButtons" id="btn" value="7">7</button>
+            <button type="button" class="numberButtons" id="btn" value="8">8</button>
+            <button type="button" class="numberButtons" id="btn" value="9">9</button>
+            <button type="button" class="numberButtons" id="btn" value="4">4</button>
+            <button type="button" class="numberButtons" id="btn" value="5">5</button>
+            <button type="button" class="numberButtons" id="btn" value="6">6</button>
+            <button type="button" class="numberButtons" id="btn" value="1">1</button>
+            <button type="button" class="numberButtons" id="btn" value="2">2</button>
+            <button type="button" class="numberButtons" id="btn" value="3">3</button>
+            <button type="button" class="numberButtons" id="btn" value=".">.</button>
+            <button type="button" class="numberButtons" id="btn" value="0">0</button>
+            <button type="button" class="equalButton" id="btn" value="=">=</button>
 
         </div>
 
         <div class="operands">
 
             <button class="operandsButtons" id="btn">+</button>
-            <button class="operandsButtons" id="btn">x</button>
-            <button class="operandsButtons" id="btn">/</button>
-            <button class="operandsButtons" id="btn">-</button>
+            <button class="operandsButtons" id="btn">−</button>
+            <button class="operandsButtons" id="btn">×</button>
+            <button class="operandsButtons" id="btn">÷</button>
 
         </div>
 
     </div>
 
     </div>
+    <script src="./script.js"></script>
 </body>
 </html>
