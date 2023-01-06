@@ -13,25 +13,6 @@ let currentScreen = document.querySelector('.current')
 
 let previous = '' ;
 let current = '' ;
-let operator = '' ;
-
-
-
-function addition(a,b){
-    return a + b ;
-}
-
-function subtract(a,b) {
-    return a - b ;
-}
-
-function multiply(a,b) {
-    return a * b ;
-}
-
-function divide(a,b) {
-    return a / b ;
-}
 
 allButtons.forEach(button =>{
     button.addEventListener('click' , () =>{
