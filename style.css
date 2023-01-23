@@ -54,7 +54,7 @@ h1{
     background-color: rgb(134, 77, 77);
 
 }
-.clear , .delete{
+.clear{
     background-color: orange;
     color: black ;
     padding: 3px;
@@ -63,7 +63,7 @@ h1{
     font-weight: bold;
     font-size: 30px;
     height: 50px;
-    width:  200px;
+    width:  95%;
     border: 5px solid darkgrey ;
     margin-right: 5px;
 }

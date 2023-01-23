@@ -11,8 +11,9 @@ let previousScreen = document.querySelector('.previous')
 let currentScreen = document.querySelector('.current')
 
 
-let previous = '' ;
-let current = '' ;
+let current = ''
+let previous = ''
+let operator = ''
 
 allButtons.forEach(button =>{
     button.addEventListener('click' , () =>{
@@ -25,81 +26,102 @@ clear.addEventListener('click' , ()  =>{
  previousScreen.textContent = ''
 })
 
-del.addEventListener('click' , () =>{
-    if(previousScreen.textContent == ''){
-    currentScreen.textContent = currentScreen.textContent.slice(0 , -1)
-    }
-    else if(previousScreen != '' && currentScreen != ''){
-        currentScreen.textContent = currentScreen.textContent.slice(0 , -1)
-    }
-    else if (currentScreen == '' && previousScreen != ''){
-        previousScreen.textContent = previousScreen.textContent.slice(0 , -1)
-    }
+function add(a , b) {
+    a+=b
+    return currentScreen.textContent = roundNumber(a),
+    previousScreen.textContent = ''
+
+}
+
+function sub(a , b) {
+    a-=b
+    return currentScreen.textContent = roundNumber(a),
+    previousScreen.textContent = ''
+}
+
+function multiply(a , b) {
+    a*=b
+    return currentScreen.textContent = roundNumber(a),
+    previousScreen.textContent = ''
+}
+
+function divide(a , b) {
+    a/=b
+    return currentScreen.textContent = roundNumber(a),
+    previousScreen.textContent = ''
+}
+
+
+
+numberButtons.forEach(buttons => {
+
+    buttons.addEventListener('click' , function (e) {
+        if (currentScreen.textContent.length <= 8 ) {
+            currentScreen.textContent += e.target.textContent 
+        }
+    })
 })
 
-numberButtons.forEach(button => {
-    button.addEventListener('click' , function (e){
-        if(currentScreen.textContent.length <= 7){
-        currentScreen.textContent += e.target.textContent
-        }
-    })    
-})    
-
-operandsButtons.forEach(operand => {
-    operand.addEventListener('click' , function (e){
+operandsButtons.forEach(operands => {
+    operands.addEventListener('click' , function(event) { 
         if(currentScreen.textContent != ''){
-        currentScreen.textContent += e.target.textContent
-        previousScreen.textContent = currentScreen.textContent ;
-        currentScreen.textContent = ''
+        currentScreen.textContent += event.target.textContent;
+        previousScreen.textContent = currentScreen.textContent;
+        currentScreen.textContent = '' ;
         }
-        
-    })    
+        operator = event.target.textContent
+
+
+    })
 })
 
 
 equalButton.addEventListener('click' , () => {
-    if(previousScreen.textContent.includes('+')){
-        previousScreen.textContent = previousScreen.textContent.slice(0 , -1)
-        current = currentScreen.textContent
-        previous = previousScreen.textContent
-        current = Number(current)
-        previous = Number(previous)
-        previous += current
-        currentScreen.textContent = roundNumber(previous)
-        previousScreen.textContent = ''
-    }
-    else if(previousScreen.textContent.includes('−')){
-        previousScreen.textContent = previousScreen.textContent.slice(0 , -1)
-        current = currentScreen.textContent
-        previous = previousScreen.textContent
-        current = Number(current)
-        previous = Number(previous)
-        previous -= current
-        currentScreen.textContent = roundNumber(previous)
-        previousScreen.textContent = ''
-    }
-    else if(previousScreen.textContent.includes('×')){
-        previousScreen.textContent = previousScreen.textContent.slice(0 , -1)
-        current = currentScreen.textContent
-        previous = previousScreen.textContent
-        current = Number(current)
-        previous = Number(previous)
-        previous *= current
-        currentScreen.textContent = roundNumber(previous)
-        previousScreen.textContent = ''
-    }
 
-    else if(previousScreen.textContent.includes('÷')){
+    if (previousScreen.textContent != '' && currentScreen.textContent != '') {
+        
+    
+
+    if (operator == '+') {
         previousScreen.textContent = previousScreen.textContent.slice(0 , -1)
         current = currentScreen.textContent
         previous = previousScreen.textContent
         current = Number(current)
         previous = Number(previous)
-        previous /= current
-        currentScreen.textContent = roundNumber(previous)
-        previousScreen.textContent = ''
+        add(previous,current)
+       
     }
+    else if (operator == '−') {
+        previousScreen.textContent = previousScreen.textContent.slice(0 , -1)
+        current = currentScreen.textContent
+        previous = previousScreen.textContent
+        current = Number(current)
+        previous = Number(previous)
+        sub(previous,current)
+
+    }
+    else if (operator == '×') {
+        previousScreen.textContent = previousScreen.textContent.slice(0 , -1)
+        current = currentScreen.textContent
+        previous = previousScreen.textContent
+        current = Number(current)
+        previous = Number(previous)
+        multiply(previous,current)
+
+    }
+    else if (operator == '÷') {
+        previousScreen.textContent = previousScreen.textContent.slice(0 , -1)
+        current = currentScreen.textContent
+        previous = previousScreen.textContent
+        current = Number(current)
+        previous = Number(previous)
+        divide(previous,current)
+
+    }
+}
 })
+
+    
 
 function roundNumber(num) {
     return Math.round(num * 1000) / 1000 ;
